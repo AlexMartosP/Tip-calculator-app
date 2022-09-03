@@ -1,6 +1,7 @@
 const billInput = document.getElementById('billInput');
 const selectButtons = document.querySelectorAll('.select');
-let selectedTip = document.querySelector('.selected');
+let defaultSelectedTip = document.querySelector('.selected');
+let selectedTip = defaultSelectedTip;
 const customTipInput = document.getElementById('customTipInput');
 const numderOfPeopleInput = document.getElementById('numderOfPeopleInput');
 
@@ -9,6 +10,8 @@ const numberError = document.getElementById('numberError');
 
 const outputTip = document.getElementById('outputTip');
 const outputTotal = document.getElementById('outputTotal');
+
+const resetButton = document.getElementById('resetButton');
 
 billInput.addEventListener('change', calculate);
 
@@ -22,6 +25,8 @@ customTipInput.addEventListener('change', () => {
     calculate();
 });
 numderOfPeopleInput.addEventListener('change', calculate);
+
+resetButton.addEventListener('click', reset);
 
 function calculate() {
     const bill = billInput.value;
@@ -68,4 +73,18 @@ function select(e) {
     e.currentTarget.classList.add('selected');
     selectedTip = e.currentTarget;
     calculate();
+}
+
+function reset() {
+    billInput.value = "";
+
+    selectedTip.classList.remove('selected');
+    selectedTip = defaultSelectedTip;
+    selectedTip.classList.add('selected');
+
+    customTipInput.value = "";
+
+    numderOfPeopleInput.value = "";
+    numberError.dataset.visible = 'false';
+    numderOfPeopleInput.closest('.input-wrapper').classList.remove('input-error');
 }
