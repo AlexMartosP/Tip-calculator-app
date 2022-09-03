@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <title>Frontend Mentor | Tip calculator app</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <img src="images/logo.svg" alt="">
+  </header>
+
+  <main class="calculator | container even-columns bg-clr-neutral-100 padding-400">
+    <form>
+      <div class="form-group">
+        <div class="label-wrapper">
+          <label class="text-clr-neutral-400">Bill</label>
+          <label class="error" id="billError">Can't be zero</label>
+        </div>
+        <div class="input-wrapper | bg-clr-neutral-200">
+          <img src="images/icon-dollar.svg" alt="">
+          <input class="text-clr-neutral-600 bg-clr-neutral-200" type="number" name="bill" id="billInput"
+            placeholder="0" min="0" step="0.01">
+        </div>
+      </div>
+      <div class="form-group | padding-block-400">
+        <label class="text-clr-neutral-400">Select Tip %</label>
+        <div class="select-wrapper">
+          <button type="button" class="button select | bg-clr-neutral-600 text-clr-neutral-100" value="5">5%</button>
+          <button type="button" class="button select | bg-clr-neutral-600 text-clr-neutral-100" value="10">10%</button>
+          <button type="button" class="button select selected | bg-clr-neutral-600 text-clr-neutral-100"
+            value="15">15%</button>
+          <button type="button" class="button select | bg-clr-neutral-600 text-clr-neutral-100" value="25">25%</button>
+          <button type="button" class="button select | bg-clr-neutral-600 text-clr-neutral-100" value="50">50%</button>
+          <input class="bg-clr-neutral-200 text-clr-neutral-600" type="number" name="cutomTip" id="customTipInput"
+            placeholder="Custom">
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="label-wrapper">
+          <label class="text-clr-neutral-400">Number of People</label>
+          <label class="error" id="numberError">Can't be zero</label>
+        </div>
+        <div class="input-wrapper | bg-clr-neutral-200">
+          <img src="images/icon-person.svg" alt="">
+          <input required class="text-clr-neutral-600 bg-clr-neutral-200" type="number" name="number of people"
+            id="numderOfPeopleInput" placeholder=" 0" min="1">
+        </div>
+      </div>
+    </form>
+
+    <div class="result-wrapper | bg-clr-neutral-600 padding-400">
+      <div class="even-columns-sm">
+        <div>
+          <p class="text-clr-neutral-100">Tip Amount</p>
+          <span class="text-clr-neutral-400">/ person</span>
+        </div>
+        <div>
+          <p class="output | text-clr-primary-400" id="outputTip">$0.00</p>
+        </div>
+      </div>
+      <div class="even-columns-sm | padding-block-400">
+        <div>
+          <p class="text-clr-neutral-100">Total</p>
+          <span class="text-clr-neutral-400">/ person</span>
+        </div>
+        <div>
+          <p class="output | text-clr-primary-400" id="outputTotal">$0.00</p>
+        </div>
+      </div>
+      <button class="button reset | bg-clr-primary-400 text-clr-neutral-600">RESET</button>
+    </div>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
